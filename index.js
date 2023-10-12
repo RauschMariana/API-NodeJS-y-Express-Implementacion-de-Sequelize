@@ -52,7 +52,7 @@ app.post('/usuarios', (req, res) => {
 });
   
 // 4- Endpoint que permita modificar algún atributo de un usuario
-app.put('/usuarios/:id', async(req, res) => {
+app.patch('/usuarios/:id', async(req, res) => {
 	const idActualice = parseInt(req.params.id);
 	const userActualice = await User.findById(idActualice);
   
