@@ -1,0 +1,32 @@
+### Mensaje de bienvenida
+GET http://localhost:3456
+
+### 1) obtención de todos los usuarios
+GET http://localhost:3456/usuarios/
+
+### 2) obtención del usuario 3
+GET http://localhost:3456/usuarios/3
+
+### 3) agregar un nuevo usuario
+POST http://localhost:3456/usuarios
+
+### 4) modificar un atributo de un usuario
+PUT http://localhost:3456//usuarios/2
+
+### 5) borrar un usuario
+DELETE http://localhost:3456/usuarios/1
+
+### 6) obtener precio por id
+GET http://localhost:3456/productos/1/precio
+
+### 7) obtener el nombre de un usuario por id
+GET http://localhost:3456/productos/4/nombre
+
+### 8) obtener el teléfono de un usuario que se indica por id
+GET http://localhost:3456/usuarios/5/telefono
+
+### 9) obtener el nombre de un usuario que se indica por id
+GET http://localhost:3456/usuarios/7/nombre
+
+### 10) obtener precio total 
+GET http://localhost:3456/productos/precio
