@@ -86,14 +86,18 @@ app.put('/usuarios/:id', async(req, res) => {
 });
   
 // 5- Endpoint que permita borrar un usuario de los datos
-app.delete('/usuarios/:id', (req, res) => {
+app.delete('/usuarios/:id', async(req, res) => {
 	const userId = parseInt(req.params.id);
-	const userIndex = User.findIndex(u => u.id === userId);
-	if (userIndex === -1) {
-		return res.status(204).send('Usuario no encontrado');
-	}
-	User.splice(userIndex, 1);
-	res.send('Usuario borrado correctamente');
+	try {
+		const deleteUser = await User.findById(userId);
+		if (!deleteUser) {
+			return res.status(204).json({ message: 'Usuario no encontrado' });
+		}
+		await deleteUser.destroy();
+		res.status(204).json({ message: 'Usuario borrado'});
+	} catch (error) {
+		res.status(204).json({ message: 'error' });
+	}	
 });
   
 // 6- Endpoint que permita obtener el precio de un producto que se indica por id
